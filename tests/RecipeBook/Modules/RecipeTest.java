@@ -1,5 +1,7 @@
-package RecipeBook;
+package RecipeBook.Modules;
 
+import main.Modules.Ingredient;
+import main.Modules.Recipe;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package RecipeBook;
+package main.Modules;
 
 import java.util.HashMap;
 
