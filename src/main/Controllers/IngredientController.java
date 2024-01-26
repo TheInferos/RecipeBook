@@ -22,7 +22,7 @@ public class IngredientController {
     }
 
     @GetMapping("/{id}")
-    public Ingredient getIngredientById(@PathVariable String id) {
+    public Ingredient getIngredientById(@PathVariable Long id) {
         return ingredientService.getIngredientById(id);
     }
 
@@ -31,9 +31,9 @@ public class IngredientController {
         return ingredientService.createIngredient(ingredient);
     }
 
-    @PutMapping("/{id}")
-    public Ingredient updateIngredient(@PathVariable Long id, @RequestBody Ingredient updatedIngredient) {
-        return ingredientService.updateIngredient(id, updatedIngredient);
+    @PutMapping("/{id}/update")
+    public void updateIngredient(@PathVariable Long id, @RequestBody Ingredient updatedIngredient) {
+         ingredientService.updateIngredient(updatedIngredient);
     }
 
     @DeleteMapping("/{id}")
