@@ -6,7 +6,6 @@ import main.Repositories.IngredientRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +23,7 @@ public class IngredientService {
     }
 
     public Ingredient getIngredientById(Long id) {
-        return ingredientRepository.findByID(id).get(0);
+        return ingredientRepository.getIngredientByID(id).get(0);
     }
 
     public Ingredient createIngredient(Ingredient ingredient) {
@@ -33,7 +32,7 @@ public class IngredientService {
     }
 
     public Ingredient updateIngredient(Ingredient updatedIngredient) {
-        ingredientRepository.updateRow(updatedIngredient.getId(), updatedIngredient.getName());
+        ingredientRepository.updateIngredientRow(updatedIngredient.getId(), updatedIngredient.getName());
         return updatedIngredient;
     }
 

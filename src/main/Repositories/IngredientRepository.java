@@ -18,13 +18,13 @@ public interface  IngredientRepository extends JpaRepository<Ingredient, Long> {
     List<Ingredient> getAllIngredients();
 
     @Query(value = "SELECT * FROM ingredient WHERE name = :value", nativeQuery = true)
-    List<Ingredient> findByPropertyName(@Param("value") String value);
+    List<Ingredient> findIngredientByName(@Param("value") String value);
 
     @Query(value = "SELECT * FROM ingredient WHERE id = :id", nativeQuery = true)
-    List<Ingredient> findByID(@Param("id") Long id);
+    List<Ingredient> getIngredientByID(@Param("id") Long id);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE ingredient SET name =:name WHERE id = :id", nativeQuery = true)
-    void updateRow(@Param("id") Long id, @Param("name") String name);
+    void updateIngredientRow(@Param("id") Long id, @Param("name") String name);
 }
