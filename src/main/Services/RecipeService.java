@@ -1,19 +1,15 @@
 package main.Services;
 
-import main.Modules.Ingredient;
 import main.Modules.Recipe;
 import main.Repositories.IngredientRepository;
 import main.Repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RecipeService {
-    private final List<Recipe> recipes = new ArrayList<>();
     private final IngredientRepository ingredientRepository;
     private final RecipeRepository recipeRepository;
     @Autowired
@@ -23,20 +19,14 @@ public class RecipeService {
     }
 
     public List<Recipe> getAllRecipes() {
-        return recipes;
+        return recipeRepository.getAllRecipes();
     }
 
-    public Recipe getRecipeById(String id) {
-        for (Recipe recipe : recipes) {
-            if (recipe.getId().equals(id)) {
-                return recipe;
-            }
-        }
-        return null; // Return null if not found (maybe throw an exception instead)
+    public Recipe getRecipeById(Long id) {
+        return recipeRepository.getRecipeById(id).get(0);
     }
 
     public Recipe createRecipe(Recipe recipe) {
-        recipes.add(recipe);
         recipeRepository.save(recipe);
         return recipe;
     }
