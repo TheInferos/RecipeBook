@@ -2,6 +2,7 @@ package main.Controllers;
 
 import main.Modules.Ingredient;
 import main.Modules.Recipe;
+import main.Modules.DTO.Recipe_DTO;
 import main.Services.IngredientService;
 import main.Services.RecipeService;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class RecipeController {
     }
 
     @PostMapping("/add")
-    public Recipe createRecipe(@RequestBody Recipe recipe) {
+    public Recipe createRecipe(@RequestBody Recipe_DTO recipe) {
         return recipeService.createRecipe(recipe);
     }
 
