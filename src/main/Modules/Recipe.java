@@ -1,5 +1,7 @@
 package main.Modules;
 
+import main.Modules.DTO.Recipe_DTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +25,14 @@ public class Recipe {
         this.ingredients = ingredients;
 
     }
+
+    public Recipe(Recipe_DTO recipe){
+        this.name = recipe.name;
+    }
+
+    // Defualt Constructor for Get
+    public Recipe(){}
+
     public String getName(){
             return name;
     }

@@ -18,7 +18,7 @@ public interface  IngredientRepository extends JpaRepository<Ingredient, Long> {
     List<Ingredient> getAllIngredients();
 
     @Query(value = "SELECT * FROM ingredient WHERE name = :value", nativeQuery = true)
-    List<Ingredient> findIngredientByName(@Param("value") String value);
+    List<Ingredient> getIngredientByName(@Param("value") String value);
 
     @Query(value = "SELECT * FROM ingredient WHERE id = :id", nativeQuery = true)
     List<Ingredient> getIngredientByID(@Param("id") Long id);
